@@ -8,9 +8,13 @@ function add(numbers) {
     numbers = match[2];
   }
 
-  return numbers
-    .split(delimiter)
-    .map((n) => parseInt(n))
-    .reduce((sum, n) => sum + n, 0);
+  const nums = numbers.split(delimiter).map((n) => parseInt(n));
+
+  const negatives = nums.filter((n) => n < 0);
+  if (negatives.length > 0) {
+    throw new Error(`negative numbers not allowed: ${negatives.join(",")}`);
+  }
+
+  return nums.reduce((sum, n) => sum + n, 0);
 }
 module.exports = { add };
