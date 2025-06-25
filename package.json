@@ -1,15 +1,41 @@
 {
   "name": "string-calculator-tdd",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "String Calculator with TDD approach in TypeScript",
+  "main": "dist/calculator.js",
+  "types": "dist/calculator.d.ts",
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript",
+    "tdd",
+    "calculator",
+    "string-parsing"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.5",
+    "@types/jest": "^29.5.11",
+    "ts-jest": "^29.1.1"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.test.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.test.ts"
+    ]
   }
 }
